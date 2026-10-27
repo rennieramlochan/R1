@@ -1,14 +1,32 @@
-﻿@model R1.Models.Employee
+﻿@model List<R1.Models.Employee>
 
+ 
 @{
-    ViewData["Title"] = "Employee Detailz";
+    ViewData["Title"] = "Employee List";
 }
 
-<h1>Employee Details</h1>
+<h1>Employee List</h1>
 
-<p>Employee ID: @Model.EmployeeId</p>
-<p>Name: @Model.Name</p>
-<p>Department: @Model.Department</p>
-<p>Monthly Salary: @Model.MonthlySalary.ToString("N2")</p>
-<p>Active: @Model.IsActive</p>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Monthly Salary</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.Name</td>
+                <td>@employee.Department</td>
+                <td>@employee.MonthlySalary.ToString("N2")</td>
+                <td>@(employee.IsActive ? "Active" : "Inactive")</td>
+            </tr>
+        }
+    </tbody>
+</table>
