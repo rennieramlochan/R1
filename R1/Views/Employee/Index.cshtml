@@ -1,0 +1,14 @@
+﻿@model R1.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Detailz";
+}
+
+<h1>Employee Details</h1>
+
+<p>Employee ID: @Model.EmployeeId</p>
+<p>Name: @Model.Name</p>
+<p>Department: @Model.Department</p>
+<p>Monthly Salary: @Model.MonthlySalary.ToString("N2")</p>
+<p>Active: @Model.IsActive</p>
+
